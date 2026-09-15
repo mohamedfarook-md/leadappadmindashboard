@@ -1,0 +1,6 @@
+/* Page-specific tweaks for Lead Management.
+   Shared table/filter/card styling lives in global.css. */
+
+.leads-page .row-actions {
+  white-space: nowrap;
+}

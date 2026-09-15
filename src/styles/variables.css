@@ -1,0 +1,59 @@
+:root {
+  /* Brand colors */
+  --color-primary: #0B6B57;
+  --color-primary-dark: #07503F;
+  --color-primary-light: #E8F5F1;
+  --color-gold: #C9A227;
+
+  /* Surfaces */
+  --color-bg: #F7F9FA;
+  --color-surface: #FFFFFF;
+
+  /* Text */
+  --color-text-primary: #16211F;
+  --color-text-secondary: #53615D;
+  --color-text-muted: #899692;
+
+  /* Borders */
+  --color-border: #E2E8E5;
+
+  /* Status tones (subtle, fintech-appropriate) */
+  --color-blue-bg: #EAF1FB;
+  --color-blue-text: #2A5C9A;
+  --color-amber-bg: #FBF3E3;
+  --color-amber-text: #92671A;
+  --color-green-bg: #E8F5F1;
+  --color-green-text: #0B6B57;
+  --color-red-bg: #FBEAEA;
+  --color-red-text: #A23B34;
+  --color-grey-bg: #EEF1F0;
+  --color-grey-text: #53615D;
+
+  /* Spacing scale */
+  --space-1: 6px;
+  --space-2: 8px;
+  --space-3: 10px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(22, 33, 31, 0.05);
+  --shadow-md: 0 4px 14px rgba(22, 33, 31, 0.06);
+  --shadow-lg: 0 10px 30px rgba(22, 33, 31, 0.08);
+
+  /* Layout */
+  --sidebar-width: 248px;
+  --sidebar-width-collapsed: 76px;
+  --header-height: 64px;
+
+  /* Typography */
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}

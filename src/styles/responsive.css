@@ -1,0 +1,110 @@
+/* Desktop is the primary target; these rules progressively adapt the
+   layout down to tablet and mobile without compromising desktop usability. */
+
+@media (max-width: 1280px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .app-content {
+    padding: var(--space-6) var(--space-5) var(--space-7);
+  }
+
+  .dashboard-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 40;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar-wrapper.mobile-open .sidebar {
+    transform: translateX(0);
+    width: var(--sidebar-width);
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 33, 31, 0.4);
+    z-index: 30;
+  }
+
+  .login-screen {
+    grid-template-columns: 1fr;
+  }
+
+  .login-side-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+  }
+
+  .stat-grid,
+  .stat-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-input, .filter-select {
+    width: 100%;
+  }
+
+  .header-profile-text {
+    display: none;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-kpi-row {
+    flex-wrap: wrap;
+    gap: var(--space-5);
+  }
+
+  .login-panel {
+    padding: var(--space-6) var(--space-5);
+  }
+}
+
+@media (max-width: 480px) {
+  .data-table {
+    min-width: 640px;
+  }
+
+  .page-title {
+    font-size: 19px;
+  }
+
+  .app-header {
+    padding: 0 var(--space-4);
+  }
+}

@@ -1,0 +1,7 @@
+/* Page-specific tweaks for the Customers module.
+   Most shared table/filter/card styling lives in global.css; this file is
+   reserved for anything unique to the customers experience. */
+
+.customers-page .card-panel {
+  padding-bottom: var(--space-5);
+}

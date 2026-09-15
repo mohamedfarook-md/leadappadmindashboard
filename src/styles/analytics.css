@@ -1,0 +1,6 @@
+/* Analytics-specific grid tweaks beyond the shared .analytics-grid
+   defined in layout.css. */
+
+.analytics-grid .card-panel {
+  margin-bottom: 0;
+}

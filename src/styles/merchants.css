@@ -1,0 +1,9 @@
+/* Page-specific tweaks for App QR Leads / merchants.
+   The APP_QR source badge intentionally reuses .badge-green from global.css
+   so it reads as a positive, verified signal distinct from other sources. */
+
+.qr-source-note {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: var(--space-3);
+}
