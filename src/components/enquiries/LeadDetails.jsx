@@ -533,7 +533,12 @@ function renderValue(value) {
   return String(value);
 }
 
-export default function LeadDetails({ lead, onAssignClick }) {
+export default function LeadDetails({
+  lead,
+  onAssignClick,
+  onStatusUpdate,
+  isStatusSaving,
+}) {
   if (!lead) return null;
 
   const customer = lead.customerId || {};
@@ -574,11 +579,51 @@ export default function LeadDetails({ lead, onAssignClick }) {
           </div>
 
           <div>
-            <dt>Status</dt>
-            <dd>
-              <StatusBadge status={lead.status} />
-            </dd>
-          </div>
+  <dt>Status</dt>
+
+  <dd>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        flexWrap: "wrap",
+      }}
+    >
+      <StatusBadge status={lead.status} />
+
+      <select
+        value={lead.status || "NEW"}
+        onChange={(e) => onStatusUpdate(e.target.value)}
+        disabled={isStatusSaving}
+        style={{
+          padding: "7px 10px",
+          border: "1px solid #d1d5db",
+          borderRadius: "6px",
+          background: "#fff",
+          cursor: isStatusSaving ? "not-allowed" : "pointer",
+        }}
+      >
+        <option value="NEW">New</option>
+        <option value="CONTACTED">Contacted</option>
+        <option value="IN_PROGRESS">In Progress</option>
+        <option value="DOCUMENT_PENDING">
+          Document Pending
+        </option>
+        <option value="SUBMITTED">Submitted</option>
+        <option value="APPROVED">Approved</option>
+        <option value="REJECTED">Rejected</option>
+        <option value="CLOSED">Closed</option>
+      </select>
+
+      {isStatusSaving && (
+        <span style={{ fontSize: "13px", color: "#6b7280" }}>
+          Updating...
+        </span>
+      )}
+    </div>
+  </dd>
+</div>
 
           <div>
             <dt>Source</dt>

@@ -8,6 +8,7 @@ import Loader from "../../components/common/Loader.jsx";
 import EmptyState from "../../components/common/EmptyState.jsx";
 import {
   fetchLeadById,
+  updateLeadStatus,
   assignLeadAgent,
 } from "../../api/enquiryApi";
 import { fetchAgents } from "../../api/agentApi";
@@ -23,6 +24,7 @@ export default function LeadDetailsPage() {
   const [agents, setAgents] = useState([]);
   const [assignOpen, setAssignOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [isStatusSaving, setIsStatusSaving] = useState(false);
 
   const loadLead = useCallback(async () => {
     setLoading(true);
@@ -89,6 +91,23 @@ export default function LeadDetailsPage() {
     }
   }
 
+
+  async function handleStatusUpdate(status) {
+  if (!id || !status) return;
+
+  setIsStatusSaving(true);
+
+  const { error: err } = await updateLeadStatus(id, status);
+
+  setIsStatusSaving(false);
+
+  if (!err) {
+    loadLead();
+  } else {
+    alert(err.message || "Failed to update lead status.");
+  }
+}
+
   return (
     <div>
       <PageHeader
@@ -129,10 +148,12 @@ export default function LeadDetailsPage() {
           }
         />
       ) : (
-        <LeadDetails
-          lead={lead}
-          onAssignClick={() => setAssignOpen(true)}
-        />
+       <LeadDetails
+  lead={lead}
+  onAssignClick={() => setAssignOpen(true)}
+  onStatusUpdate={handleStatusUpdate}
+  isStatusSaving={isStatusSaving}
+/>
       )}
 
       <AssignAgentModal
