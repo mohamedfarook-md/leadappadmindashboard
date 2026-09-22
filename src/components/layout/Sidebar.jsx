@@ -44,18 +44,33 @@ const NAV_ITEMS = [
       </svg>
     ),
   },
-  {
-    to: "/agents",
-    label: "Agents",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <circle cx="8" cy="9" r="2.6" stroke="currentColor" strokeWidth="1.6" />
-        <circle cx="16" cy="9" r="2.6" stroke="currentColor" strokeWidth="1.6" />
-        <path d="M2.8 19c0-2.9 2.4-5 5.2-5s5.2 2.1 5.2 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-        <path d="M12.8 19c0-2.9 2.3-5 5.2-5 1 0 1.9.25 2.7.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-      </svg>
-    ),
-  },
+  // {
+  //   to: "/agents",
+  //   label: "Agents",
+  //   icon: (
+  //     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+  //       <circle cx="8" cy="9" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+  //       <circle cx="16" cy="9" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+  //       <path d="M2.8 19c0-2.9 2.4-5 5.2-5s5.2 2.1 5.2 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+  //       <path d="M12.8 19c0-2.9 2.3-5 5.2-5 1 0 1.9.25 2.7.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+  //     </svg>
+  //   ),
+  // },
+
+
+{
+  to: "/companies",
+  label: "Partners",
+  icon: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <circle cx="8" cy="9" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="16" cy="9" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M2.8 19c0-2.9 2.4-5 5.2-5s5.2 2.1 5.2 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M12.8 19c0-2.9 2.3-5 5.2-5 1 0 1.9.25 2.7.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  ),
+},
+
   {
     to: "/analytics",
     label: "Analytics",

@@ -635,3 +635,473 @@ input, select, textarea {
   padding-top: var(--space-4);
   border-top: 1px dashed var(--color-border);
 }
+
+
+
+/* ======================================================
+   COMPANIES / PARTNERS PAGE
+   ====================================================== */
+
+.companies-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+/* ======================================================
+   HEADER
+   ====================================================== */
+
+.companies-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.companies-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #172033;
+  letter-spacing: -0.4px;
+}
+
+.companies-header p {
+  margin: 7px 0 0;
+  color: #7a8497;
+  font-size: 14px;
+}
+
+/* Add Company Button */
+
+.companies-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  background: #168c5b;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(22, 140, 91, 0.16);
+}
+
+.companies-add-btn:hover {
+  background: #11784d;
+  transform: translateY(-1px);
+}
+
+.companies-add-btn span {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+/* ======================================================
+   STAT CARDS
+   ====================================================== */
+
+.companies-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.companies-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 88px;
+  padding: 18px 20px;
+  background: #ffffff;
+  border: 1px solid #e8ecf2;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.companies-stat-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #edf8f3;
+  color: #168c5b;
+  font-size: 19px;
+}
+
+.companies-stat-card span {
+  display: block;
+  margin-bottom: 5px;
+  color: #7c8799;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.companies-stat-card strong {
+  display: block;
+  color: #172033;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+/* ======================================================
+   MAIN CARD
+   ====================================================== */
+
+.companies-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e8ecf2;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(20, 30, 50, 0.03);
+}
+
+.companies-card-header {
+  min-height: 82px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #edf0f4;
+  box-sizing: border-box;
+}
+
+.companies-card-header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.companies-card-header p {
+  margin: 5px 0 0;
+  color: #8a94a6;
+  font-size: 12px;
+}
+
+.companies-count {
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #f4f7f6;
+  color: #647083;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ======================================================
+   TABLE
+   ====================================================== */
+
+.companies-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.companies-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+.companies-table thead {
+  background: #fafbfc;
+}
+
+.companies-table th {
+  height: 45px;
+  padding: 0 20px;
+  text-align: left;
+  color: #8993a4;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  white-space: nowrap;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.companies-table td {
+  padding: 15px 20px;
+  color: #4d596c;
+  font-size: 13px;
+  border-bottom: 1px solid #f0f2f5;
+  vertical-align: middle;
+}
+
+.companies-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ======================================================
+   COMPANY ROW
+   ====================================================== */
+
+.company-row {
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.company-row:hover {
+  background: #f8fbfa;
+}
+
+/* ======================================================
+   COMPANY INFO
+   ====================================================== */
+
+.company-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 210px;
+}
+
+.company-avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #eaf7f1;
+  color: #168c5b;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.company-info strong {
+  display: block;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #202a3a;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.company-info span {
+  display: block;
+  margin-top: 3px;
+  color: #99a2b1;
+  font-size: 11px;
+}
+
+/* ======================================================
+   EMAIL
+   ====================================================== */
+
+.company-email {
+  color: #586579;
+  font-size: 13px;
+}
+
+/* ======================================================
+   STATUS
+   ====================================================== */
+
+.company-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.company-status.active {
+  background: #eaf8f1;
+  color: #168c5b;
+}
+
+.company-status.inactive {
+  background: #f2f3f5;
+  color: #7d8694;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ======================================================
+   ARROW
+   ====================================================== */
+
+.company-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  color: #8993a4;
+  font-size: 17px;
+  transition: all 0.18s ease;
+}
+
+.company-row:hover .company-arrow {
+  background: #eaf7f1;
+  color: #168c5b;
+  transform: translateX(2px);
+}
+
+/* ======================================================
+   LOADING / EMPTY / ERROR STATES
+   ====================================================== */
+
+.companies-state {
+  min-height: 300px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.companies-state h3 {
+  margin: 14px 0 5px;
+  color: #202a3a;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.companies-state p {
+  margin: 0;
+  max-width: 400px;
+  color: #8993a4;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Empty icon */
+
+.companies-empty-icon {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #edf8f3;
+  font-size: 27px;
+}
+
+/* Error */
+
+.companies-state-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff1f1;
+  color: #d64545;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.companies-error h3 {
+  color: #b73535;
+}
+
+/* ======================================================
+   LOADER
+   ====================================================== */
+
+.companies-loader {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #e4eee9;
+  border-top-color: #168c5b;
+  border-radius: 50%;
+  animation: companies-spin 0.8s linear infinite;
+}
+
+@keyframes companies-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ======================================================
+   RETRY / EMPTY BUTTON
+   ====================================================== */
+
+.companies-retry-btn,
+.companies-empty-btn {
+  margin-top: 18px;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid #168c5b;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #168c5b;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.companies-retry-btn:hover,
+.companies-empty-btn:hover {
+  background: #168c5b;
+  color: #ffffff;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 900px) {
+  .companies-page {
+    padding: 20px;
+  }
+
+  .companies-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .companies-header {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .companies-page {
+    padding: 15px;
+  }
+
+  .companies-header {
+    flex-direction: column;
+  }
+
+  .companies-add-btn {
+    width: 100%;
+  }
+
+  .companies-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
