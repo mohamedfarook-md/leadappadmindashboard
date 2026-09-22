@@ -1105,3 +1105,367 @@ input, select, textarea {
     flex-direction: column;
   }
 }
+
+
+
+
+/* ======================================================
+   ADD COMPANY PAGE
+   ====================================================== */
+
+.add-company-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+/* ======================================================
+   HEADER
+   ====================================================== */
+
+.add-company-header {
+  margin-bottom: 24px;
+}
+
+.add-company-back {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 14px;
+  border: none;
+  background: transparent;
+  color: #168c5b;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-company-back:hover {
+  color: #11784d;
+}
+
+.add-company-header h1 {
+  margin: 0;
+  color: #172033;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.add-company-header p {
+  margin: 7px 0 0;
+  color: #7a8497;
+  font-size: 14px;
+}
+
+/* ======================================================
+   MAIN CARD
+   ====================================================== */
+
+.add-company-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e7ebf0;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(20, 30, 50, 0.04);
+}
+
+/* ======================================================
+   CARD HEADER
+   ====================================================== */
+
+.add-company-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 26px;
+  border-bottom: 1px solid #edf0f4;
+  background: #ffffff;
+}
+
+.add-company-card-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #eaf7f1;
+  font-size: 21px;
+}
+
+.add-company-card-header h2 {
+  margin: 0;
+  color: #202a3a;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.add-company-card-header p {
+  margin: 5px 0 0;
+  color: #8a94a6;
+  font-size: 12px;
+}
+
+/* ======================================================
+   FORM
+   ====================================================== */
+
+.add-company-card form {
+  padding: 26px;
+}
+
+.add-company-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 20px;
+}
+
+.add-company-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-company-field.full {
+  grid-column: 1 / -1;
+}
+
+.add-company-field label {
+  margin-bottom: 8px;
+  color: #374255;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.add-company-field label span {
+  margin-left: 3px;
+  color: #d64545;
+}
+
+.add-company-field input,
+.add-company-field select {
+  width: 100%;
+  height: 45px;
+  padding: 0 13px;
+  box-sizing: border-box;
+  border: 1px solid #dfe4eb;
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  color: #263144;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.add-company-field input::placeholder {
+  color: #a4acb9;
+}
+
+.add-company-field input:hover,
+.add-company-field select:hover {
+  border-color: #c8d0da;
+}
+
+.add-company-field input:focus,
+.add-company-field select:focus {
+  border-color: #168c5b;
+  box-shadow: 0 0 0 3px rgba(22, 140, 91, 0.10);
+}
+
+.add-company-field input:disabled,
+.add-company-field select:disabled {
+  background: #f7f8fa;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ======================================================
+   ALERTS
+   ====================================================== */
+
+.add-company-alert {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  margin-bottom: 22px;
+  padding: 10px 13px;
+  box-sizing: border-box;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.add-company-alert span {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.add-company-alert.error {
+  border: 1px solid #f2d2d2;
+  background: #fff6f6;
+  color: #b73535;
+}
+
+.add-company-alert.error span {
+  background: #f8dede;
+  color: #b73535;
+}
+
+.add-company-alert.success {
+  border: 1px solid #cce9dc;
+  background: #f2fbf6;
+  color: #168c5b;
+}
+
+.add-company-alert.success span {
+  background: #d9f2e5;
+  color: #168c5b;
+}
+
+/* ======================================================
+   ACTIONS
+   ====================================================== */
+
+.add-company-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid #edf0f4;
+}
+
+.add-company-cancel,
+.add-company-submit {
+  height: 43px;
+  padding: 0 18px;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.add-company-cancel {
+  border: 1px solid #dfe4eb;
+  background: #ffffff;
+  color: #667286;
+}
+
+.add-company-cancel:hover {
+  border-color: #c8d0da;
+  background: #f8f9fb;
+  color: #374255;
+}
+
+.add-company-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 155px;
+  border: 1px solid #168c5b;
+  background: #168c5b;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(22, 140, 91, 0.15);
+}
+
+.add-company-submit:hover {
+  border-color: #11784d;
+  background: #11784d;
+  transform: translateY(-1px);
+}
+
+.add-company-submit:disabled,
+.add-company-cancel:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ======================================================
+   BUTTON LOADER
+   ====================================================== */
+
+.add-company-button-loader {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: add-company-spin 0.7s linear infinite;
+}
+
+@keyframes add-company-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 760px) {
+  .add-company-page {
+    padding: 20px;
+  }
+
+  .add-company-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .add-company-field.full {
+    grid-column: auto;
+  }
+
+  .add-company-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .add-company-page {
+    padding: 15px;
+  }
+
+  .add-company-header h1 {
+    font-size: 24px;
+  }
+
+  .add-company-card-header {
+    padding: 20px;
+  }
+
+  .add-company-card form {
+    padding: 20px;
+  }
+
+  .add-company-actions {
+    flex-direction: column-reverse;
+  }
+
+  .add-company-cancel,
+  .add-company-submit {
+    width: 100%;
+  }
+}
