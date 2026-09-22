@@ -22,13 +22,27 @@ export default function Agents() {
     setError(null);
     const { data, error: err } = await fetchAgents({ search, page, limit: PAGE_SIZE });
     if (err) {
-      setError(err.message);
-      setAgents([]);
-      setTotal(0);
-    } else {
-      setAgents(data?.items || data || []);
-      setTotal(data?.total ?? (data?.items || data || []).length);
-    }
+  setError(err.message);
+  setAgents([]);
+  setTotal(0);
+} else {
+  const payload = data?.data || data;
+
+  const agentList = Array.isArray(payload?.items)
+    ? payload.items
+    : Array.isArray(payload?.agents)
+    ? payload.agents
+    : Array.isArray(payload)
+    ? payload
+    : [];
+
+  setAgents(agentList);
+
+  setTotal(
+    payload?.total ??
+      agentList.length
+  );
+}
     setLoading(false);
   }, [search, page]);
 
