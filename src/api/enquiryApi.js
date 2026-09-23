@@ -147,8 +147,20 @@ export function fetchLeadById(id) {
 }
 
 // PATCH /admin/leads/:id/status
-export function updateLeadStatus(id, status) {
-  return request(api.patch(`/admin/leads/${id}/status`, { status }));
+export function updateLeadStatus(
+  id,
+  status,
+  statusReason = ""
+) {
+  return request(
+    api.patch(
+      `/admin/leads/${id}/status`,
+      {
+        status,
+        statusReason,
+      }
+    )
+  );
 }
 
 // PATCH /admin/leads/:id/assign

@@ -92,19 +92,48 @@ export default function LeadDetailsPage() {
   }
 
 
-  async function handleStatusUpdate(status) {
+//   async function handleStatusUpdate(status) {
+//   if (!id || !status) return;
+
+//   setIsStatusSaving(true);
+
+//   const { error: err } = await updateLeadStatus(id, status);
+
+//   setIsStatusSaving(false);
+
+//   if (!err) {
+//     loadLead();
+//   } else {
+//     alert(err.message || "Failed to update lead status.");
+//   }
+// }
+
+
+
+async function handleStatusUpdate(
+  status,
+  statusReason = ""
+) {
   if (!id || !status) return;
 
   setIsStatusSaving(true);
 
-  const { error: err } = await updateLeadStatus(id, status);
+  const { error: err } =
+    await updateLeadStatus(
+      id,
+      status,
+      statusReason
+    );
 
   setIsStatusSaving(false);
 
   if (!err) {
     loadLead();
   } else {
-    alert(err.message || "Failed to update lead status.");
+    alert(
+      err.message ||
+        "Failed to update lead status."
+    );
   }
 }
 

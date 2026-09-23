@@ -38,3 +38,18 @@ export function createCompany(payload) {
     api.post("/admin/companies", payload)
   );
 }
+
+
+// Get agents under a company
+export function fetchCompanyAgents(companyId) {
+  return request(
+    api.get(`/admin/companies/${companyId}/agents`)
+  );
+}
+
+// Create agent under a company
+export function createCompanyAgent(companyId, payload) {
+  return request(
+    api.post(`/admin/companies/${companyId}/agents`, payload)
+  );
+}

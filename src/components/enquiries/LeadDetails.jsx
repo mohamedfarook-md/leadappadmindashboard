@@ -502,6 +502,7 @@ import EmptyState from "../common/EmptyState.jsx";
 import { SOURCE_LABELS } from "../../utils/constants";
 import { formatDateTime } from "../../utils/formatters";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function formatLabel(key) {
   return String(key)
@@ -545,6 +546,90 @@ export default function LeadDetails({
   const assignedAgent = lead.assignedAgent || {};
   const customerDetails = lead.customerDetails || {};
   const serviceDetails = lead.serviceDetails || {};
+
+
+    const isLoan = lead.serviceType === "Loans";
+  const isCreditCard = lead.serviceType === "Credit Card";
+
+  const [selectedStatus, setSelectedStatus] = useState(
+    lead.status || "NEW"
+  );
+
+  const [selectedReason, setSelectedReason] = useState(
+    lead.statusReason || ""
+  );
+
+    const loanReasons = [
+    {
+      value: "Income / Salary Eligibility",
+      label: "Income / Salary Eligibility",
+      message:
+        "Your loan application could not be approved as your verified monthly income does not meet the applicable eligibility criteria for the requested loan amount. You may consider applying again when your income meets the applicable requirements.",
+    },
+    {
+      value: "Credit Profile",
+      label: "Credit Profile",
+      message:
+        "Your loan application could not be approved as your current credit profile does not meet the applicable eligibility criteria. You may consider improving your credit profile and applying again after the applicable period.",
+    },
+    {
+      value: "Existing Financial Obligations",
+      label: "Existing Financial Obligations",
+      message:
+        "Your loan application could not be approved based on your existing financial obligations and current eligibility profile. You may consider applying again after your financial eligibility improves.",
+    },
+    {
+      value: "Document / Information Mismatch",
+      label: "Document / Information Mismatch",
+      message:
+        "Your application could not be approved as the information provided could not be verified against the supporting documents submitted. Please ensure that the information provided matches your supporting documents before applying again.",
+    },
+    {
+      value: "General Eligibility Criteria",
+      label: "General Eligibility Criteria",
+      message:
+        "Your loan application could not be approved as it does not currently meet the applicable eligibility criteria. Eligibility is assessed based on multiple factors.",
+    },
+    {
+      value: "Reapply / Waiting Period",
+      label: "Reapply / Waiting Period",
+      message:
+        "Your loan application could not be approved at this time. You may consider applying again after the applicable waiting period, subject to meeting the applicable eligibility requirements.",
+    },
+  ];
+
+  const creditCardReasons = [
+    {
+      value: "IN_REVIEW",
+      label: "Under Review",
+      message:
+        "Your credit card application is currently under review. We will notify you once there is an update on your application.",
+    },
+    {
+      value: "ADDITIONAL_DOCUMENTS_REQUIRED",
+      label: "Additional Documents Required",
+      message:
+        "Additional documents or information are required to process your credit card application. Please provide the requested details to continue the application process.",
+    },
+    {
+      value: "APPROVED",
+      label: "Approved",
+      message:
+        "Good news! Your credit card application has been approved. Our team will contact you shortly regarding the next steps.",
+    },
+    {
+      value: "REJECTED",
+      label: "Rejected",
+      message:
+        "Your credit card application could not be approved based on the applicable eligibility criteria. You may explore other available options in the future.",
+    },
+  ];
+
+  const availableReasons = isLoan
+    ? loanReasons
+    : isCreditCard
+    ? creditCardReasons
+    : [];
 
   return (
     <div className="profile-grid">
@@ -592,10 +677,24 @@ export default function LeadDetails({
     >
       <StatusBadge status={lead.status} />
 
-      <select
+      {/* <select
         value={lead.status || "NEW"}
-        onChange={(e) => onStatusUpdate(e.target.value)}
-        disabled={isStatusSaving}
+        onChange={(e) =>
+  onStatusUpdate(
+    e.target.value,
+    selectedReason
+  )
+}
+        disabled={isStatusSaving} */}
+
+
+
+        <select
+  value={selectedStatus}
+  onChange={(e) => {
+    setSelectedStatus(e.target.value);
+  }}
+  disabled={isStatusSaving}
         style={{
           padding: "7px 10px",
           border: "1px solid #d1d5db",
@@ -611,10 +710,64 @@ export default function LeadDetails({
           Document Pending
         </option>
         <option value="SUBMITTED">Submitted</option>
+        <option value="IN_REVIEW">Under Review</option>
+
+<option value="ADDITIONAL_DOCUMENTS_REQUIRED">
+  Additional Documents Required
+</option>
         <option value="APPROVED">Approved</option>
         <option value="REJECTED">Rejected</option>
         <option value="CLOSED">Closed</option>
       </select>
+
+      {(isLoan || isCreditCard) && (
+  <select
+    value={selectedReason}
+    onChange={(e) => setSelectedReason(e.target.value)}
+    disabled={isStatusSaving}
+    style={{
+      padding: "7px 10px",
+      border: "1px solid #d1d5db",
+      borderRadius: "6px",
+      background: "#fff",
+      cursor: isStatusSaving ? "not-allowed" : "pointer",
+      minWidth: "240px",
+    }}
+  >
+    <option value="">Select Reason / Update</option>
+
+    {availableReasons.map((reason) => (
+      <option
+        key={reason.value}
+        value={reason.value}
+      >
+        {reason.label}
+      </option>
+    ))}
+  </select>
+)}
+
+<button
+  type="button"
+  onClick={() =>
+    onStatusUpdate(
+      selectedStatus,
+      selectedReason
+    )
+  }
+  disabled={isStatusSaving}
+  style={{
+    padding: "7px 14px",
+    border: "none",
+    borderRadius: "6px",
+    background: "#111827",
+    color: "#fff",
+    cursor: isStatusSaving ? "not-allowed" : "pointer",
+    fontWeight: "600",
+  }}
+>
+  {isStatusSaving ? "Updating..." : "Update Status"}
+</button>
 
       {isStatusSaving && (
         <span style={{ fontSize: "13px", color: "#6b7280" }}>
