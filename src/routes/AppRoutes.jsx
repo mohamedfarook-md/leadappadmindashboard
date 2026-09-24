@@ -13,6 +13,7 @@ import QRMerchantDetails from "../pages/qr/QRMerchantDetails.jsx";
 import Agents from "../pages/agents/Agents.jsx";
 import Companies from "../pages/companies/Companies.jsx";
 import AddCompany from "../pages/companies/AddCompany.jsx";
+import CompanyDetails from "../pages/companies/CompanyDetails.jsx";
 import AgentDetails from "../pages/agents/AgentDetails.jsx";
 import Analytics from "../pages/analytics/Analytics.jsx";
 import Settings from "../pages/settings/Settings.jsx";
@@ -44,6 +45,11 @@ export default function AppRoutes() {
 
         <Route path="companies" element={<Companies />} />
         <Route path="companies/add" element={<AddCompany />} />
+
+        <Route
+  path="companies/:id"
+  element={<CompanyDetails />}
+/>
 
         <Route path="agents" element={<Agents />} />
         <Route path="agents/:id" element={<AgentDetails />} />
