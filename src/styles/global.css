@@ -2031,3 +2031,264 @@ input, select, textarea {
     width: 100%;
   }
 }
+
+
+/* =========================================
+   COMPANY AGENTS TABLE
+========================================= */
+
+.company-agents-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 4px;
+  border-radius: 12px;
+}
+
+.company-agents-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+}
+
+/* Header */
+
+.company-agents-table thead {
+  background: #f8fafc;
+}
+
+.company-agents-table th {
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+/* Body */
+
+.company-agents-table td {
+  padding: 17px 20px;
+  border-bottom: 1px solid #eef2f7;
+  font-size: 14px;
+  color: #1f2937;
+  vertical-align: middle;
+  background: #ffffff;
+}
+
+.company-agents-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.company-agents-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.company-agents-table tbody tr:hover td {
+  background: #f8fafc;
+}
+
+/* Agent Name */
+
+.company-agent-table-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.company-agent-table-name strong {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Avatar */
+
+.company-agent-avatar {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ecfdf5;
+  color: #059669;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Total Leads */
+
+.company-agents-table td:nth-child(2) {
+  font-weight: 600;
+  color: #111827;
+}
+
+.company-agents-table td:nth-child(2) strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 34px;
+  height: 30px;
+  padding: 0 9px;
+
+  border-radius: 7px;
+
+  background: #f1f5f9;
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Status */
+
+.company-agent-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.company-agent-status.active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.company-agent-status.inactive {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.company-agent-status .status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+}
+
+/* Actions */
+
+.company-agent-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  white-space: nowrap;
+}
+
+/* View Profile */
+
+.company-agent-profile-btn,
+.company-agent-leads-btn {
+  min-height: 34px;
+
+  padding: 7px 13px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.company-agent-profile-btn {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+}
+
+.company-agent-profile-btn:hover {
+  background: #f8fafc;
+  border-color: #9ca3af;
+}
+
+/* View Leads */
+
+.company-agent-leads-btn {
+  border: 1px solid #0f172a;
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.company-agent-leads-btn:hover {
+  background: #1e293b;
+  border-color: #1e293b;
+}
+
+.company-agent-profile-btn:active,
+.company-agent-leads-btn:active {
+  transform: translateY(1px);
+}
+
+/* Empty state */
+
+.company-agents-table-wrapper + .company-agents-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #64748b;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .company-agents-table {
+    min-width: 760px;
+  }
+
+  .company-agents-table th,
+  .company-agents-table td {
+    padding: 13px 14px;
+  }
+
+  .company-agent-table-name {
+    min-width: 180px;
+  }
+
+  .company-agent-avatar {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .company-agent-actions {
+    gap: 6px;
+  }
+
+  .company-agent-profile-btn,
+  .company-agent-leads-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}

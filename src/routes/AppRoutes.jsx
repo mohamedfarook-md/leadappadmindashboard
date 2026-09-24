@@ -15,6 +15,7 @@ import Companies from "../pages/companies/Companies.jsx";
 import AddCompany from "../pages/companies/AddCompany.jsx";
 import CompanyDetails from "../pages/companies/CompanyDetails.jsx";
 import AgentProfile from "../pages/companies/AgentProfile.jsx";
+import AgentLeads from "../pages/companies/AgentLeads.jsx";
 import AddAgent from "../pages/companies/AddAgent.jsx";
 import AgentDetails from "../pages/agents/AgentDetails.jsx";
 import Analytics from "../pages/analytics/Analytics.jsx";
@@ -61,6 +62,11 @@ export default function AppRoutes() {
 <Route
   path="companies/:id/agents/:agentId"
   element={<AgentProfile />}
+/>
+
+<Route
+  path="companies/:id/agents/:agentId/leads"
+  element={<AgentLeads />}
 />
 
         <Route path="agents" element={<Agents />} />
