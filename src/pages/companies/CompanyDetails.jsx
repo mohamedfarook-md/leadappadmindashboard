@@ -297,12 +297,14 @@ useEffect(() => {
         </div>
 
         <div className="company-details-stat">
-          <span>✓</span>
-          <div>
-            <strong>0</strong>
-            <small>Active Agents</small>
-          </div>
-        </div>
+  <span>✓</span>
+  <div>
+    <strong>
+      {agents.filter((agent) => agent.isActive).length}
+    </strong>
+    <small>Active Agents</small>
+  </div>
+</div>
 
       </div>
 
@@ -351,39 +353,92 @@ useEffect(() => {
 </button>
   </div>
 ) : (
-  <div className="company-agents-list">
-    {agents.map((agent) => (
-      <div
-        key={agent._id}
-        className="company-agent-row"
-      >
-        <div className="company-agent-avatar">
-          {agent.name?.charAt(0)?.toUpperCase() || "A"}
-        </div>
+  <div className="company-agents-table-wrapper">
+  <table className="company-agents-table">
+    <thead>
+      <tr>
+        <th>Agent Name</th>
+        <th>Total Leads</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
 
-        <div className="company-agent-info">
-          <strong>{agent.name}</strong>
-          <span>{agent.email || "No email"}</span>
-          <small>{agent.mobile}</small>
-        </div>
+    <tbody>
+      {agents.map((agent) => (
+        <tr key={agent._id}>
 
-        <div
-          className={`company-agent-status ${
-            agent.isActive ? "active" : "inactive"
-          }`}
-        >
-          {agent.isActive ? "Active" : "Inactive"}
-        </div>
+          {/* Agent Name */}
+          <td>
+            <div className="company-agent-table-name">
+              <div className="company-agent-avatar">
+                {agent.name?.charAt(0)?.toUpperCase() || "A"}
+              </div>
 
-        <button
-          type="button"
-          className="company-agent-view-btn"
-        >
-          View
-        </button>
-      </div>
-    ))}
-  </div>
+              <strong>
+                {agent.name || "Unnamed Agent"}
+              </strong>
+            </div>
+          </td>
+
+          {/* Total Leads */}
+          <td>
+            <strong>
+              {agent.totalLeads ?? 0}
+            </strong>
+          </td>
+
+          {/* Status */}
+          <td>
+            <span
+              className={`company-agent-status ${
+                agent.isActive ? "active" : "inactive"
+              }`}
+            >
+              <span className="status-dot" />
+
+              {agent.isActive
+                ? "Active"
+                : "Inactive"}
+            </span>
+          </td>
+
+          {/* Actions */}
+          <td>
+            <div className="company-agent-actions">
+
+              <button
+                type="button"
+                className="company-agent-profile-btn"
+                onClick={() =>
+                  navigate(
+                    `/companies/${id}/agents/${agent._id}`
+                  )
+                }
+              >
+                View Profile
+              </button>
+
+              <button
+                type="button"
+                className="company-agent-leads-btn"
+                onClick={() =>
+                  navigate(
+                    `/companies/${id}/agents/${agent._id}/leads`
+                  )
+                }
+              >
+                View Leads
+              </button>
+
+            </div>
+          </td>
+
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
 )}
 
       </div>
