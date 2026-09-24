@@ -1885,3 +1885,15 @@ input, select, textarea {
     padding: 6px 9px;
   }
 }
+
+/* Company Details - Back button fix */
+.company-back-btn {
+  width: auto;
+  min-width: max-content;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}

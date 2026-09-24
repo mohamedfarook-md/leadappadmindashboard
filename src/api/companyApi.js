@@ -40,6 +40,14 @@ export function createCompany(payload) {
 }
 
 
+// Update company
+export function updateCompany(id, payload) {
+  return request(
+    api.patch(`/admin/companies/${id}`, payload)
+  );
+}
+
+
 // Get agents under a company
 export function fetchCompanyAgents(companyId) {
   return request(

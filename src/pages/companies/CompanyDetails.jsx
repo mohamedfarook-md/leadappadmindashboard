@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   fetchCompanyById,
   fetchCompanyAgents,
+  updateCompany,
 } from "../../api/companyApi";
 
 export default function CompanyDetails() {
@@ -13,7 +14,8 @@ export default function CompanyDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [agents, setAgents] = useState([]);
-const [agentsLoading, setAgentsLoading] = useState(true);
+  const [agentsLoading, setAgentsLoading] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
 
 useEffect(() => {
   loadCompany();
@@ -112,14 +114,114 @@ useEffect(() => {
           </p>
         </div>
 
-        <button
-          type="button"
-          className="company-edit-btn"
-        >
-          Edit Company
-        </button>
+      <button
+  type="button"
+  className="company-edit-btn"
+  onClick={() => setIsEditing(true)}
+>
+  Edit Company
+</button>
       </div>
 
+{isEditing && (
+  <div className="company-profile-card">
+    <div className="company-profile-contact">
+
+      <div>
+        <span>Company Name</span>
+        <input
+          type="text"
+          value={company.companyName || ""}
+          onChange={(e) =>
+            setCompany({
+              ...company,
+              companyName: e.target.value,
+            })
+          }
+        />
+      </div>
+
+      <div>
+        <span>Email</span>
+        <input
+          type="email"
+          value={company.email || ""}
+          onChange={(e) =>
+            setCompany({
+              ...company,
+              email: e.target.value,
+            })
+          }
+        />
+      </div>
+
+      <div>
+        <span>Mobile</span>
+        <input
+          type="text"
+          value={company.mobile || ""}
+          onChange={(e) =>
+            setCompany({
+              ...company,
+              mobile: e.target.value,
+            })
+          }
+        />
+      </div>
+
+      <div>
+        <span>Status</span>
+        <select
+          value={company.status || "active"}
+          onChange={(e) =>
+            setCompany({
+              ...company,
+              status: e.target.value,
+            })
+          }
+        >
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
+      <button
+        type="button"
+        className="company-edit-btn"
+        onClick={() => setIsEditing(false)}
+      >
+        Cancel
+      </button>
+
+      <button
+  type="button"
+  className="add-agent-btn"
+  onClick={async () => {
+    const { data, error: err } = await updateCompany(id, {
+      companyName: company.companyName,
+      email: company.email,
+      mobile: company.mobile,
+      status: company.status,
+    });
+
+    if (err) {
+      alert(err.message || "Failed to update company.");
+      return;
+    }
+
+    setCompany(data);
+    setIsEditing(false);
+    alert("Company updated successfully.");
+  }}
+>
+  Save Changes
+</button>
+    </div>
+  </div>
+)}
       {/* Company Information */}
       <div className="company-profile-card">
 
