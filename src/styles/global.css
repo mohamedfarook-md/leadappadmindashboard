@@ -1897,3 +1897,137 @@ input, select, textarea {
   padding: 8px 12px;
   margin-bottom: 10px;
 }
+
+
+
+/* ================================
+   ADD AGENT PAGE
+================================ */
+
+.add-agent-page {
+  width: 100%;
+}
+
+.add-agent-form-card {
+  max-width: 900px;
+  margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.add-agent-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.add-agent-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-agent-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.add-agent-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.add-agent-form-group input,
+.add-agent-form-group select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-agent-form-group input:focus,
+.add-agent-form-group select:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.10);
+}
+
+.add-agent-form-group input::placeholder {
+  color: #9ca3af;
+}
+
+.add-agent-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.add-agent-cancel-btn {
+  min-height: 42px;
+  padding: 9px 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-agent-cancel-btn:hover {
+  background: #f9fafb;
+}
+
+.add-agent-save-btn {
+  min-height: 42px;
+  padding: 9px 20px;
+  border: none;
+  border-radius: 9px;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-agent-save-btn:hover {
+  background: #15803d;
+}
+
+@media (max-width: 768px) {
+  .add-agent-form-card {
+    padding: 20px;
+  }
+
+  .add-agent-form-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .add-agent-form-group.full-width {
+    grid-column: auto;
+  }
+
+  .add-agent-form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .add-agent-cancel-btn,
+  .add-agent-save-btn {
+    width: 100%;
+  }
+}

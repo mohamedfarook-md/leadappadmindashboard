@@ -318,12 +318,13 @@ useEffect(() => {
             </p>
           </div>
 
-          <button
-            type="button"
-            className="add-agent-btn"
-          >
-            + Add Agent
-          </button>
+       <button
+  type="button"
+  className="add-agent-btn"
+  onClick={() => navigate(`/companies/${id}/agents/add`)}
+>
+  + Add Agent
+</button>
 
         </div>
 
@@ -341,12 +342,13 @@ useEffect(() => {
       Add agents to this company to start assigning leads.
     </p>
 
-    <button
-      type="button"
-      className="add-agent-empty-btn"
-    >
-      + Add Agent
-    </button>
+   <button
+  type="button"
+  className="add-agent-empty-btn"
+  onClick={() => navigate(`/companies/${id}/agents/add`)}
+>
+  + Add Agent
+</button>
   </div>
 ) : (
   <div className="company-agents-list">
