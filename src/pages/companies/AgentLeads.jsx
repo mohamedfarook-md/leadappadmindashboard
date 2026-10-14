@@ -314,8 +314,22 @@ export default function AgentLeads() {
         return;
       }
 
-      await loadAgentLeads();
-      await loadAvailableLeads();
+     await loadAgentLeads();
+
+const refreshResult = await fetchLeads({
+  page: 1,
+  limit: 100,
+});
+
+if (!refreshResult?.error) {
+  const allLeads = refreshResult?.data?.items || [];
+
+  setAvailableLeads(
+    allLeads.filter((lead) => !lead.agentId)
+  );
+}
+
+setShowAssignLeads(true);
     } catch {
       setError("Could not assign lead. Please try again.");
     } finally {
