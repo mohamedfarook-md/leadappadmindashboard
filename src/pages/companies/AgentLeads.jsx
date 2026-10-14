@@ -250,7 +250,11 @@
 
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchLeads, assignLeadAgent } from "../../api/enquiryApi";
+import {
+  fetchLeads,
+  assignLeadAgent,
+  unassignLeadAgent,
+} from "../../api/enquiryApi";
 
 export default function AgentLeads() {
   const { id, agentId } = useParams();
@@ -262,6 +266,36 @@ export default function AgentLeads() {
   const [showAssignLeads, setShowAssignLeads] = useState(false);
   const [availableLeads, setAvailableLeads] = useState([]);
   const [assigningId, setAssigningId] = useState("");
+
+  
+const [unassigningId, setUnassigningId] = useState("");
+
+const handleUnassignLead = async (leadId) => {
+  const confirmed = window.confirm(
+    "Are you sure you want to unassign this lead?"
+  );
+
+  if (!confirmed) return;
+
+  setUnassigningId(leadId);
+  setError("");
+
+  try {
+    const result = await unassignLeadAgent(leadId);
+
+    if (result?.error) {
+      setError("Could not unassign lead. Please try again.");
+      return;
+    }
+
+    await loadAgentLeads();
+  } catch {
+    setError("Could not unassign lead. Please try again.");
+  } finally {
+    setUnassigningId("");
+  }
+};
+
 
   const loadAgentLeads = async () => {
     setLoading(true);
@@ -455,19 +489,20 @@ setShowAssignLeads(true);
                 <th>Product</th>
                 <th>Status</th>
                 <th>Created</th>
+                <th>Action</th>
               </tr>
             </thead>
 
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan="5" style={{ textAlign: "center", padding: 30 }}>
+                  <td colSpan="6" style={{ textAlign: "center", padding: 30 }}>
                     Loading leads...
                   </td>
                 </tr>
               ) : leads.length === 0 ? (
                 <tr>
-                  <td colSpan="5" style={{ textAlign: "center", padding: 30 }}>
+                  <td colSpan="6" style={{ textAlign: "center", padding: 30 }}>
                     No leads assigned to this agent.
                   </td>
                 </tr>
@@ -483,6 +518,18 @@ setShowAssignLeads(true);
                         ? new Date(lead.createdAt).toLocaleDateString("en-IN")
                         : "—"}
                     </td>
+                    
+<td>
+  <button
+    type="button"
+    className="company-back-btn"
+    disabled={unassigningId === lead.id}
+    onClick={() => handleUnassignLead(lead.id)}
+  >
+    {unassigningId === lead.id ? "Unassigning..." : "Unassign"}
+  </button>
+</td>
+
                   </tr>
                 ))
               )}

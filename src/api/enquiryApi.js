@@ -169,6 +169,12 @@ export function assignLeadAgent(id, agentId) {
   return request(api.patch(`/admin/leads/${id}/assign`, { agentId }));
 }
 
+
+export function unassignLeadAgent(id) {
+  return request(api.patch(`/admin/leads/${id}/unassign`));
+}
+
+
 // POST /admin/leads/:id/notes
 // body: { note }
 export function addLeadNote(id, note) {
